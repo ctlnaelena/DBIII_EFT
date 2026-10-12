@@ -1,0 +1,13 @@
+# Configuracion compartida por TODOS los clientes de Spring Cloud Config
+# (se aplica a cualquier aplicacion que importe configserver, sin
+# importar su spring.application.name). Cada microservicio conserva
+# su propia configuracion local (puertos, datasource, scopes, etc.);
+# aqui solo se centralizan los ajustes comunes de observabilidad.
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,circuitbreakers,circuitbreakerevents,retries
+  endpoint:
+    health:
+      show-details: always

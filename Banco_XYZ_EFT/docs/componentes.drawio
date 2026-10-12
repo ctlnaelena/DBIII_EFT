@@ -1,0 +1,74 @@
+<mxfile host="app.diagrams.net" modified="2026-10-11T00:00:00.000Z" agent="claude" version="24.0.0" type="device">
+  <diagram name="Componentes" id="componentes">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1150" pageHeight="350" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cluster_pagos" value="pagos-service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F9FC;strokeColor=#1F4E79;verticalAlign=top;fontFamily=Arial;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="380" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="PagoController" value="PagoController" style="shape=component;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1F4E79;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="70" y="120" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="PagoRepository" value="PagoRepository (JPA)" style="shape=component;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1F4E79;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="260" y="70" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CuentasClient" value="CuentasClient
+@CircuitBreaker @Retry @TimeLimiter" style="shape=component;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1F4E79;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="260" y="150" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PagoEventPublisher" value="PagoEventPublisher" style="shape=component;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1F4E79;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="260" y="230" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cluster_cuentas" value="cuentas-service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F9FC;strokeColor=#1F4E79;verticalAlign=top;fontFamily=Arial;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="40" width="400" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="CuentaController" value="CuentaController" style="shape=component;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1F4E79;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="530" y="120" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ClientesClient" value="ClientesClient
+@CircuitBreaker @Retry @TimeLimiter" style="shape=component;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1F4E79;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="720" y="70" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PagoEventoListener" value="PagoEventoListener
+@KafkaListener" style="shape=component;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1F4E79;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="720" y="150" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CuentaRepository" value="CuentaRepository (JPA)" style="shape=component;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1F4E79;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="720" y="230" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="clientes_service_ext" value="clientes-service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#616161;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="980" y="120" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ce1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="PagoController" target="CuentasClient">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce2" value="GET /cuentas/{id}
+(via Eureka)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="CuentasClient" target="CuentaController">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="PagoController" target="PagoRepository">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="PagoController" target="PagoEventPublisher">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce5" value="Kafka:
+pagos-completados" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="PagoEventPublisher" target="PagoEventoListener">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce6" value="actualiza saldo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="PagoEventoListener" target="CuentaRepository">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="CuentaController" target="ClientesClient">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce8" value="GET /clientes/{id}
+(via Eureka)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="ClientesClient" target="clientes_service_ext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

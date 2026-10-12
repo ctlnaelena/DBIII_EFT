@@ -1,0 +1,7 @@
+services:
+  clientes-service:
+    ports: ["8083:8083"]
+  cuentas-service:
+    ports: ["8081:8081"]
+  pagos-service:
+    ports: ["8082:8082"]

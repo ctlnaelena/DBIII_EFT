@@ -1,0 +1,90 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: cuentas-service
+  config:
+    import: "optional:configserver:http://localhost:8888"
+  datasource:
+    url: jdbc:h2:file:./data/cuentas-service;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: none
+  sql:
+    init:
+      mode: always
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9999/oauth2/jwks
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: cuentas-service
+
+bancoxyz:
+  auth:
+    token-uri: http://localhost:9999/oauth2/token
+    client-id: cuentas-service
+    client-secret: cuentas-secret
+    scope: clientes.read
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      clientesService:
+        sliding-window-size: 5
+        minimum-number-of-calls: 3
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 2
+        automatic-transition-from-open-to-half-open-enabled: true
+  retry:
+    instances:
+      clientesService:
+        max-attempts: 3
+        wait-duration: 500ms
+  timelimiter:
+    instances:
+      clientesService:
+        timeout-duration: 3s
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,circuitbreakers,circuitbreakerevents,retries
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  datasource:
+    url: jdbc:h2:file:/data/cuentas-service;AUTO_SERVER=TRUE
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://auth-server:9999/oauth2/jwks
+  kafka:
+    bootstrap-servers: kafka:9092
+bancoxyz:
+  auth:
+    token-uri: http://auth-server:9999/oauth2/token
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/

@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS pagos (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    cuenta_id BIGINT NOT NULL,
+    tipo_operacion VARCHAR(30) NOT NULL,
+    monto DOUBLE NOT NULL,
+    estado VARCHAR(20) NOT NULL,
+    fecha TIMESTAMP NOT NULL
+);

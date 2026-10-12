@@ -1,0 +1,9 @@
+target/
+**/data/*.mv.db
+**/data/*.trace.db
+*.jar
+*.class
+.idea/
+.vscode/
+*.log
+.DS_Store

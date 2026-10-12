@@ -1,0 +1,143 @@
+<mxfile host="app.diagrams.net" modified="2026-10-11T00:00:00.000Z" agent="claude" version="24.0.0" type="device">
+  <diagram name="Arquitectura" id="arquitectura">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="canales" value="Canales
+Web | Movil | Cajero Automatico" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#B38600;fontFamily=Arial;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bffweb" value="BFF Web
+:8091" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1F4E79;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="140" y="140" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bffmobile" value="BFF Movil
+:8092" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1F4E79;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="460" y="140" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bffatm" value="BFF ATM
+:8093" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1F4E79;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="780" y="140" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eureka" value="Eureka Server
+Service Discovery
+:8761" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E2EFDA;strokeColor=#548235;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="60" y="280" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="config" value="Config Server
+Spring Cloud Config
+:8888" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E2EFDA;strokeColor=#548235;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="260" y="280" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="auth" value="Auth Server
+OAuth2.0
+:9999" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#C2185B;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="460" y="280" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="clientes" value="clientes-service
+Gestion de Clientes
+:8083" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1F4E79;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="60" y="420" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cuentas" value="cuentas-service
+Gestion de Cuentas
+:8081
+(Resilience4j)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1F4E79;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="330" y="420" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="pagos" value="pagos-service
+Procesamiento de Pagos
+:8082
+(Resilience4j)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FB;strokeColor=#1F4E79;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="600" y="420" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="kafka" value="Apache Kafka
+pagos-completados
+alertas-seguridad
+:9092" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FFE0B2;strokeColor=#E65100;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="870" y="420" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="batch" value="batch-service
+Spring Batch
+(3 Jobs)
+:8080" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#5E35B1;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="60" y="570" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="legacy" value="Datos legacy (CSV)
+fin_legacy_data" style="shape=note;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#616161;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="60" y="690" width="190" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="canales" target="bffweb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="canales" target="bffmobile">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="canales" target="bffatm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="OAuth2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="bffweb" target="clientes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="OAuth2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="bffweb" target="cuentas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="OAuth2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="bffweb" target="pagos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="OAuth2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="bffmobile" target="clientes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="OAuth2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="bffmobile" target="cuentas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="OAuth2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="bffmobile" target="pagos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="OAuth2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="bffatm" target="cuentas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" value="OAuth2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="bffatm" target="pagos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" value="verifica cliente" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;dashed=1;" edge="1" parent="1" source="cuentas" target="clientes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" value="valida cuenta" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;dashed=1;" edge="1" parent="1" source="pagos" target="cuentas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" value="publica
+pago.completado" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="pagos" target="kafka">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" value="consume
+(actualiza saldo)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="kafka" target="cuentas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#548235;dashed=1;" edge="1" parent="1" source="clientes" target="eureka">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#548235;dashed=1;" edge="1" parent="1" source="cuentas" target="eureka">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#548235;dashed=1;" edge="1" parent="1" source="pagos" target="eureka">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#548235;dashed=1;" edge="1" parent="1" source="bffweb" target="eureka">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#548235;dashed=1;" edge="1" parent="1" source="bffmobile" target="eureka">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#548235;dashed=1;" edge="1" parent="1" source="bffatm" target="eureka">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e22" value="lee" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontFamily=Arial;fontSize=9;strokeColor=#1F4E79;" edge="1" parent="1" source="legacy" target="batch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS cuentas (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id BIGINT NOT NULL,
+    tipo_cuenta VARCHAR(30) NOT NULL,
+    saldo DOUBLE NOT NULL,
+    estado VARCHAR(20) NOT NULL
+);
